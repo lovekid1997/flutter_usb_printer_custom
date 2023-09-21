@@ -1,5 +1,5 @@
 package app.mylekha.client.flutter_usb_printer.adapter
-
+import java.lang.Thread
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -251,6 +251,8 @@ class USBPrinterAdapter {
 
                         val b = mUsbDeviceConnection[getUsbDeviceString(mUsbDevice!!)]!!.bulkTransfer(mEndPoint[getUsbDeviceString(mUsbDevice!!)], bytes, bytes.size, 100000)
                         Log.i(LOG_TAG, "Return Status: $b")
+                        Thread.sleep(100)
+                        Log.i(LOG_TAG, "Thread.sleep(100)")
                     }
                 true
             } else {
